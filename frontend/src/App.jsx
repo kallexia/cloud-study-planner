@@ -1,17 +1,13 @@
 import Header from './components/Header'
+import HeroSection from './components/HeroSection'
+
 
 function App() {
   return (
     <>
+      {/* Component composition */}
       <Header />
-
-      <main id="home">
-        <h1>Plan your studies with confidence</h1>
-
-        <p>
-          Organize your courses, study sessions and academic tasks in one place.
-        </p>
-      </main>
+      <HeroSection />
     </>
   )
 }
