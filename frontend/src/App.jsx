@@ -1,6 +1,7 @@
 import Header from './components/Header'
 import HeroSection from './components/HeroSection'
 import CoursesSection from './components/CoursesSection'
+import TasksSection from './components/TasksSection'
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <HeroSection />
       <CoursesSection />
+      <TasksSection />
     </>
   )
 }

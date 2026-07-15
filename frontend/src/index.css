@@ -230,3 +230,82 @@ nav a:hover {
     gap: 16px;
   }
 }
+
+.tasks-section {
+  padding: 96px 24px;
+  background-color: #f8fafc;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+}
+
+.task-item h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.task-item p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.task-toggle-button {
+  flex-shrink: 0;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.task-toggle-button:hover {
+  background-color: #1d4ed8;
+}
+
+.task-completed {
+  opacity: 0.65;
+}
+
+.task-completed h3 {
+  text-decoration: line-through;
+}
+
+.task-completed .task-toggle-button {
+  background-color: #16a34a;
+}
+
+@media (max-width: 650px) {
+  .task-item {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .task-toggle-button {
+    width: 100%;
+  }
+}
