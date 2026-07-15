@@ -41,7 +41,13 @@ function TasksSection() {
 
     function handleAddTask(newTask) {
         setTasks((currentTasks) => [...currentTasks, newTask])
-    }  
+    } 
+
+    function handleDeleteTask(taskId) {
+        setTasks((currentTasks) =>
+            currentTasks.filter((task) => task.id !== taskId)
+        )
+    }
 
     const filteredTasks = tasks.filter((task) => {
         if (filter === 'completed') {
@@ -105,6 +111,7 @@ function TasksSection() {
                 key={task.id}
                 task={task}
                 onToggle={handleToggleTask}
+                onDelete={handleDeleteTask}
                 />
             ))}
             </div>

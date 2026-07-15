@@ -362,6 +362,16 @@ nav a:hover {
   font-size: 14px;
 }
 
+.task-details {
+  flex: 1;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .task-toggle-button {
   flex-shrink: 0;
   padding: 10px 16px;
@@ -374,8 +384,26 @@ nav a:hover {
   cursor: pointer;
 }
 
+
 .task-toggle-button:hover {
   background-color: #1d4ed8;
+}
+
+.task-delete-button {
+  flex-shrink: 0;
+  padding: 10px 16px;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #dc2626;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.task-delete-button:hover {
+  border-color: #dc2626;
+  background-color: #fef2f2;
 }
 
 .task-completed {
@@ -401,6 +429,15 @@ nav a:hover {
   }
 
   .task-form {
-  grid-template-columns: 1fr;
-}
+    grid-template-columns: 1fr;
+  }
+
+  .task-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .task-delete-button {
+    width: 100%;
+  }
 }
