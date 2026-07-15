@@ -1,12 +1,18 @@
+import Header from './components/Header'
+
 function App() {
   return (
-    <main>
-      <h1>Cloud Study Planner</h1>
+    <>
+      <Header />
 
-      <p>
-        Organize your courses, study sessions and academic tasks in one place.
-      </p>
-    </main>
+      <main id="home">
+        <h1>Plan your studies with confidence</h1>
+
+        <p>
+          Organize your courses, study sessions and academic tasks in one place.
+        </p>
+      </main>
+    </>
   )
 }
 
