@@ -27,6 +27,8 @@ function TasksSection() {
         },
     ])
 
+    const [filter, setFilter] = useState('all')
+
     function handleToggleTask(taskId) {
         setTasks((currentTasks) =>
         currentTasks.map((task) =>
@@ -39,7 +41,19 @@ function TasksSection() {
 
     function handleAddTask(newTask) {
         setTasks((currentTasks) => [...currentTasks, newTask])
-    }   
+    }  
+
+    const filteredTasks = tasks.filter((task) => {
+        if (filter === 'completed') {
+        return task.completed
+        }
+
+        if (filter === 'pending') {
+        return !task.completed
+        }
+
+        return true
+    })
 
     return (
         <section id="tasks" className="tasks-section">
@@ -53,9 +67,40 @@ function TasksSection() {
             </div>
 
             <TaskForm onAddTask={handleAddTask} />
+            <div className="task-filters">
+                <button
+                    type="button"
+                    className={filter === 'all' ? 'filter-button active' : 'filter-button'}
+                    onClick={() => setFilter('all')}
+                >
+                    All
+                </button>
 
+                <button
+                    type="button"
+                    className={filter === 'pending' ? 'filter-button active' : 'filter-button'}
+                    onClick={() => setFilter('pending')}
+                >
+                    Pending
+                </button>
+
+                <button
+                    type="button"
+                    className={
+                    filter === 'completed' ? 'filter-button active' : 'filter-button'
+                    }
+                    onClick={() => setFilter('completed')}
+                >
+                    Completed
+                </button>
+            </div>
             <div className="tasks-list">
-            {tasks.map((task) => (
+            {filteredTasks.length === 0 && (
+                <p className="empty-tasks-message">
+                    No tasks match the selected filter.
+                </p>
+            )}    
+            {filteredTasks.map((task) => (
                 <TaskItem
                 key={task.id}
                 task={task}
