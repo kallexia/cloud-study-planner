@@ -1,33 +1,45 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TaskItem from './TaskItem'
 import TaskForm from './TaskForm'
 
 function TasksSection() {
-    const [tasks, setTasks] = useState([
+    const initialTasks = [
         {
-        id: 1,
-        title: 'Complete cloud architecture report',
-        course: 'Cloud Computing',
-        dueDate: '20 July 2026',
-        completed: false,
+            id: 1,
+            title: 'Complete cloud architecture report',
+            course: 'Cloud Computing',
+            dueDate: '2026-07-20',
+            completed: false,
         },
         {
-        id: 2,
-        title: 'Review React component structure',
-        course: 'Software Engineering',
-        dueDate: '22 July 2026',
-        completed: true,
+            id: 2,
+            title: 'Review React component structure',
+            course: 'Software Engineering',
+            dueDate: '2026-07-22',
+            completed: true,
         },
         {
-        id: 3,
-        title: 'Prepare database schema',
-        course: 'Database Systems',
-        dueDate: '25 July 2026',
-        completed: false,
+            id: 3,
+            title: 'Prepare database schema',
+            course: 'Database Systems',
+            dueDate: '2026-07-25',
+            completed: false,
         },
-    ])
+        ]
+    const [tasks, setTasks] = useState(() => {
+        const savedTasks = localStorage.getItem('cloud-study-planner-tasks')
+
+        return savedTasks ? JSON.parse(savedTasks) : initialTasks
+    })
 
     const [filter, setFilter] = useState('all')
+
+    useEffect(() => {
+        localStorage.setItem(
+            'cloud-study-planner-tasks',
+            JSON.stringify(tasks)
+        )
+    }, [tasks])
 
     function handleToggleTask(taskId) {
         setTasks((currentTasks) =>
