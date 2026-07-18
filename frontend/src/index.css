@@ -417,6 +417,30 @@ nav a:hover {
 .task-completed .task-toggle-button {
   background-color: #16a34a;
 }
+.task-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.stat-card span {
+  display: block;
+  margin-bottom: 6px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.stat-card strong {
+  font-size: 28px;
+}
 
 @media (max-width: 650px) {
   .task-item {
@@ -439,5 +463,9 @@ nav a:hover {
 
   .task-delete-button {
     width: 100%;
+  }
+
+  .task-stats {
+    grid-template-columns: 1fr;
   }
 }

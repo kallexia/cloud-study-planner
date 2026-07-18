@@ -73,6 +73,10 @@ function TasksSection() {
         return true
     })
 
+    const totalTasks = tasks.length
+    const completedTasks = tasks.filter((task) => task.completed).length
+    const pendingTasks = totalTasks - completedTasks
+
     return (
         <section id="tasks" className="tasks-section">
         <div className="section-content">
@@ -113,6 +117,22 @@ function TasksSection() {
                 </button>
             </div>
             <div className="tasks-list">
+            <div className="task-stats">
+                <div className="stat-card">
+                    <span>Total</span>
+                    <strong>{totalTasks}</strong>
+                </div>
+
+                <div className="stat-card">
+                    <span>Pending</span>
+                    <strong>{pendingTasks}</strong>
+                </div>
+
+                <div className="stat-card">
+                    <span>Completed</span>
+                    <strong>{completedTasks}</strong>
+                </div>
+            </div>
             {filteredTasks.length === 0 && (
                 <p className="empty-tasks-message">
                     No tasks match the selected filter.
